@@ -1,0 +1,16 @@
+.gradle
+/build
+/code
+.settings
+.metadata
+.project
+.classpath
+bin
+build
+lib/
+target
+*.jar
+.DS_Store
+*.log
+*.log.*
+*.db

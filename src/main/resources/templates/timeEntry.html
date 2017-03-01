@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/page-elements :: headerFragment ('Time Entry')"></head>
+    <body>
+    
+	    <div th:replace="fragments/page-elements :: mainNavigation">...</div>
+    
+        <div class="container-fluid">
+			<div class="row">
+			<div class="mainbox col-md-6 col-sm-8">
+			
+			<div th:if="${timeEntry.id > 0}">
+				<h1>Edit Time Entry</h1>
+			</div>
+			<div th:unless="${timeEntry.id > 0}">
+				<h1>Add new Time Entry</h1>
+			</div>
+			     
+			<div class="panel panel-default">
+			
+		  		<div class="panel-body">
+		    		
+		    		<form action="#" th:action="@{/timeEntry}" th:object="${timeEntry}" method="post">
+		    		
+						<input type="hidden" th:field="*{id}"></input>
+						
+						<div th:replace="fragments/form-fields :: formInput ('task', 'Task')"></div>
+
+						<div th:replace="fragments/form-fields :: formInput ('description', 'Description')"></div>
+
+						<div th:replace="fragments/form-fields :: formInput ('date', 'Date')"></div>
+						<div th:replace="fragments/form-fields :: formInput ('hours', 'Hours')"></div>
+					  			  
+						<button type="submit" class="btn btn-primary">Submit</button>
+						<a th:href="@{/timeEntry}" class="btn btn-default">Cancel</a>
+					  
+					</form>		    		
+		  		</div>
+			</div>
+			
+			</div>
+			</div>
+			
+			<div class="row report-row-break">
+        	<div class="col-sm-12">
+        	
+		<table class="table table-striped" id="timeEntryTable">
+			<thead>
+			<tr>
+				<th>Task</th>
+				<th>Description</th>
+				<th>Date</th>
+				<th>Hours</th>
+				<th><span class="pull-right">Actions</span></th>
+			</tr>
+			</thead>
+			<tbody>
+			
+			<tr th:each="entry : ${timeEntryList}">
+				<td th:text="${entry.task}"></td>
+				<td th:text="${entry.description}"></td>
+				<td th:text="${#temporals.format(entry.date, 'M/dd/yyyy')}">1/12/2017</td>
+				<td th:text="${entry.hours}"></td>
+	       		<td>
+	       			<a th:href="@{/timeEntry/{id}(id=${entry.id})}" data-toggle="tooltip" data-placement="bottom" title="Edit" class="pull-right"><span class="glyphicon glyphicon-pencil action-icon" aria-hidden="true"></span></a>
+	       		</td>
+	       	</tr>
+	    
+		    </tbody>
+		</table>
+		
+		</div>
+		</div>
+
+	    </div>
+	            
+        <div th:replace="fragments/page-elements :: javascriptLibs">...</div>
+        
+    </body>
+</html>

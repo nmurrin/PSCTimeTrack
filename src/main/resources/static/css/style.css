@@ -1,0 +1,145 @@
+.image-background { 
+  background: url(/img/background-1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.is-brand img {
+	height: 75px;
+	margin-top: -20px;
+}
+
+.is-navbar {
+	margin-bottom: 40px;
+}
+
+.report-white-background {
+	background-color: #ffffff;
+}
+
+.report {
+	color: #79797c;
+	font-size: 14px;
+}
+
+.report-header {
+	color: #660066;
+	font-size: 36px;
+}
+
+.report-sub-header {
+	color: #79797c;
+	font-size: 24px;
+}
+
+.report-text-header {
+	color: #660066;
+	font-weight: 900;
+}
+
+@media (max-width: 767px) {
+	.report-mobile-row-break {
+		margin-top: 20px;
+	}
+}
+
+.report-large-text {
+	font-size: 18px;
+}
+
+.report-row-break {
+	margin-top: 20px;
+}
+
+.report-signature-break {
+	margin-top: 50px;	
+}
+.report-line {
+	border-top: 1px solid #79797c;
+}
+
+.report-table {
+	margin-top: 10px;
+}
+
+.report-table>tbody>tr>th {
+	background-color: #660066;
+	color: #ffffff;
+	border: 1px solid #660066;
+	white-space: nowrap;
+}
+
+.report-table>tbody>tr>td {
+	background-color: #f1f2f2;
+}
+
+
+.report-checkbox {
+	height: 20px;
+}
+
+.report-footer {
+	font-size: 10px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.report-overlay {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: #000000;
+}
+
+.report-action-parent {
+	position: relative;
+}
+.report-action-parent:hover div {
+    opacity:0.5;
+}
+
+.report-action-parent:hover input{
+    display: block;
+}
+
+.report-action {
+	position:absolute;
+	width: 200px;
+	height: 40px;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: 0 auto;
+	display: none;
+}
+
+.dataTables_paginate .pagination {
+	margin: 0px;
+	float: right!important;
+}
+
+.dataTables_filter label {
+	float: right!important;
+}
+
+.dataTables_filter label input {
+	margin-left: 10px;
+}
+
+.action-icon {
+	margin-left: 5px;
+}
+
+.glyphicon-none:before {
+    content: "\2122";
+    color: transparent !important;
+}
+
+.ifBlankMessage {
+	display: none;
+}

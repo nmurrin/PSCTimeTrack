@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="fragments/page-elements :: headerFragment ('Login')"></head>
+
+    <body class="image-background">
+    
+    	<nav class="navbar navbar-default navbar-inverse">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand is-brand" href="#"><img src="/img/logo3.jpg"></img></a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#"></a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+    
+    
+        <div class="container-fluid">
+        
+	        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+	        
+		        <div class="panel panel-default" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign In</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="/forgotPassword">Forgot password?</a></div>
+                    </div> 
+                    
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div th:if="${param.error} or ${param.logout}" id="login-alert" class="alert alert-danger col-sm-12">
+	                        <div th:if="${param.error}">
+				                Invalid username and password.
+				            </div>
+				            <div th:if="${param.logout}">
+				                You have been logged out.
+				            </div>
+                        </div>
+                        <div th:if="${successMsg}" class="alert alert-success col-sm-12">
+                        	<span th:text="${successMsg}"></span>
+                        </div>
+                            
+                        <form id="loginform" class="form-horizontal" role="form" th:action="@{/login}" method="post">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="login-username" type="text" class="form-control" name="username" value="" autofocus="autofocus" placeholder="username" required="required"></input>
+                                    </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password" required="required"></input>
+                            </div>
+
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+
+                                <div class="col-sm-12 controls">
+                                	<input id="btn-login" type="submit" value="Sign In" class="btn btn-primary"></input>
+                                </div>
+                            </div>
+    
+                        </form>  
+                    </div>
+				</div>
+	        </div>
+	    </div>
+	    
+	            
+		<div th:replace="fragments/page-elements :: javascriptLibs">...</div>
+    </body>
+</html>
